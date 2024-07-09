@@ -1,3 +1,9 @@
+// Colors
+$dark: hsl(330, 16.67%, 4.71%); //#0e0a0c99
+$white: hsl(0, 0%, 100%); //#fff
+$primary: hsl(24.83, 97.13%, 40.98%); //#ce5703
+$secondary: hsl(258.92, 100%, 78.24%); //#b390ff
+
 // Media-queries breakpoints
 $bp-xxs: 250px;
 $bp-xs: 400px;
@@ -14,6 +20,7 @@ $font-m: 20px;
 $font-l: 28px;
 $font-xl: 36px;
 $font-xxl: 52px;
+$font-xxxl: 104px;
 
 // Spacing
 $space-xxs: 2px;
