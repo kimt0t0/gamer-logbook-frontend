@@ -1,0 +1,22 @@
+@import './global/variables';
+@import './global/mixins';
+@import './global/functions';
+
+// GLOBAL STYLING
+body {
+    background-color: greenyellow;
+}
+
+// PAGE TRANSITIONS
+.fade-enter-active,
+.fade-leave-active {
+    @include classicTransition();
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    transform-origin: center;
+    background-color: orange;
+    transform: rotate(-360deg);
+    opacity: 0;
+}
