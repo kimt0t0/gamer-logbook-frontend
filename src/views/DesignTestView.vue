@@ -1,5 +1,11 @@
 <script setup lang="ts">
+import FormBox from '@/components/forms/FormBox.vue';
+
 const listItems: Array<string> = ['toto', 'titi', 'tutu', 'this is a much longer line just to check what happens if we write a bit more'];
+
+function onSubmitForm(): void {
+    alert('Form submitted :)');
+}
 </script>
 
 <template>
@@ -34,12 +40,15 @@ const listItems: Array<string> = ['toto', 'titi', 'tutu', 'this is a much longer
     <section class="vertical-display">
         <h2>Forms</h2>
         <div class="items-displayer __larger-gap">
-            <form>
-                <h3 class="form-title">Random form</h3>
+            <FormBox title="Random form" :onSubmitAction="() => onSubmitForm()">
                 <TextInput name="username" :required="true" :minLength="1" :maxLength="30" />
                 <Textarea name="message" />
                 <Password />
-            </form>
+                <Button type="submit" color="secondary">
+                    <content-save-icon class="button-icon"></content-save-icon>
+                    Save
+                </Button>
+            </FormBox>
         </div>
     </section>
 </template>

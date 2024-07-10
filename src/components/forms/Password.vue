@@ -14,7 +14,7 @@ const onInput = (event: Event) => {
 </script>
 
 <template>
-    <div :class="'input-container' + (paswordValue ? ' has-value' : '')">
+    <div :class="'input-container password-container' + (paswordValue ? ' has-value' : '')">
         <input
             :type="isHidden ? 'password' : 'text'"
             class="text-input password-input"
@@ -25,23 +25,26 @@ const onInput = (event: Event) => {
             v-model="paswordValue"
             required
         />
+        <label class="input-label" for="password">password</label>
         <button type="button" class="password-toggle-button" @click="toggleIsHidden()">
             <eye-icon class="password-button-icon" v-if="isHidden"></eye-icon>
             <eye-off-icon class="password-button-icon" v-else></eye-off-icon>
         </button>
-        <label class="input-label" for="password">password</label>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .password-toggle-button {
+    position: absolute;
+    top: 0;
+    right: 0;
     font-size: $font-m;
     font-weight: 600;
     color: color($white, 40);
     border: 2px solid color($white, 40);
     border-radius: $radius-xxs;
     background-color: transparent;
-    padding: $space-s;
+    padding: $space-xs $space-s;
     cursor: pointer;
     @include classicTransition;
     &:hover {

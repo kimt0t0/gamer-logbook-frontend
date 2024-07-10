@@ -1,18 +1,23 @@
 <script setup lang="ts">
 defineProps<{
+    type?: 'button' | 'submit';
     color?: string;
     size?: string;
 }>();
 </script>
 
 <template>
-    <button :class="'btn-colored-' + color + ' btn-size-' + size">
+    <button :type="type" :class="'btn-colored-' + color + ' btn-size-' + size">
         <slot></slot>
     </button>
 </template>
 
 <style lang="scss" scoped>
 button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $space-s;
     font-size: $font-m;
     font-weight: 600;
     color: $primary;

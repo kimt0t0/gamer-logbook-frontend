@@ -4,6 +4,8 @@
 
 // GLOBAL STYLING
 body {
+    margin: 0;
+    padding: 0;
     background-color: $dark;
     color: $white;
     scrollbar-width: thin;
@@ -90,6 +92,13 @@ h1 {
     color: $secondary;
 }
 
+// Lists
+ul {
+    margin: 0;
+    padding: $space-s 0;
+    list-style-type: none;
+}
+
 // Links
 a {
     color: color($white, 35);
@@ -102,6 +111,11 @@ a {
         color: $white;
         border-bottom: 4px solid $white;
     }
+}
+
+// Buttons
+.button-icon {
+    padding-top: $space-xs;
 }
 
 // Form box
@@ -130,6 +144,7 @@ form {
     border: 1px solid color($white, 20);
     border-radius: $radius-xs;
     position: relative;
+    width: fit-content;
     > label {
         text-transform: capitalize;
         position: absolute;
@@ -164,7 +179,8 @@ form {
         min-height: $space-xxxl;
     }
     &.has-value {
-        > input {
+        > input,
+        > textarea {
             color: $white;
         }
         > label,
