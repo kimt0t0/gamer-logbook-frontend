@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router';
 
 <template>
     <header>
-        <h1>Gamer <span class="__title-colored-primary">Logbook</span></h1>
+        <h1>Gamer <span class="title-gradient-primary">Logbook</span></h1>
         <nav>
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/design-test">Design Test</RouterLink>

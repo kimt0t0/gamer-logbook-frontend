@@ -18,6 +18,8 @@ const props = defineProps<{
 
 <style lang="scss" scoped>
 .cardlink {
+    padding-bottom: $space-s;
+    border-bottom: 8px solid transparent;
     > .cardlink-contents {
         border: 2px solid $white;
         border-radius: $radius-xs;
@@ -50,8 +52,7 @@ const props = defineProps<{
     }
 
     &:hover {
-        border-radius: $radius-s;
-        border-bottom: 6px solid $primary;
+        border-bottom-color: $primary;
         > .cardlink-contents {
             color: $primary;
             &::after {
