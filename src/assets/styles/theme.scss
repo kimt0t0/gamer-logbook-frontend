@@ -32,8 +32,12 @@ section {
     flex-direction: column;
 }
 
+.horizontal-display {
+    display: flex;
+    gap: $space-xxl;
+}
+
 div,
-span,
 p,
 a,
 input,
@@ -49,19 +53,12 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.subtitle {
     margin: 0;
     padding-bottom: $space-xl;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: $white;
-
-    > .title-gradient-primary {
-        background: linear-gradient(270deg, color($primary, 50) 3.94%, color($primary, 80) 90.72%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        letter-spacing: -1px;
-    }
 }
 
 h1 {
@@ -75,14 +72,13 @@ h1 {
     line-height: 1;
     margin: 0;
     width: fit-content;
-
-    > .title-gradient-primary {
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        padding: 0;
-        font-size: $font-xxl;
-        font-weight: 800;
-    }
 }
+
+.subtitle {
+    font-size: $font-m;
+}
+
+// Text colors
 
 .colored-primary {
     color: $primary;
@@ -90,6 +86,14 @@ h1 {
 
 .colored-secondary {
     color: $secondary;
+}
+
+.colored-linear-primary {
+    background: linear-gradient(270deg, color($primary, 50) 3.94%, color($primary, 80) 90.72%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -1px;
 }
 
 // Lists
@@ -201,7 +205,9 @@ form {
 .fade-enter-from,
 .fade-leave-to {
     transform-origin: center;
-    background-color: orange;
+    background: $primary;
+    overflow: hidden;
+    border-radius: 50%;
     transform: rotate(-360deg);
     opacity: 0;
 }

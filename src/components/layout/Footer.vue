@@ -54,6 +54,15 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+
+    @media (max-width: $bp-s) {
+        padding: $space-l $space-xl $space-xs;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: $space-m;
+    }
 }
 .social-media-list {
     display: flex;
@@ -75,6 +84,10 @@ footer {
 }
 h6 {
     padding-bottom: $space-s;
+    @media (max-width: $bp-s) {
+        text-align: center;
+        padding: $space-m 0 $space-xxs;
+    }
 }
 p {
     font-size: $font-xxs;
@@ -97,6 +110,17 @@ p {
         padding: $space-s;
         &:hover {
             border-left-color: $primary;
+        }
+    }
+
+    @media (max-width: $bp-s) and (min-width: $bp-xxs) {
+        display: flex;
+        > li > .footer-link {
+            border-left: none;
+            border-bottom: 1px solid color($white, 20);
+            &:hover {
+                border-bottom-color: $primary;
+            }
         }
     }
 }

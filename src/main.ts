@@ -15,13 +15,18 @@ import CardLink from '@/components/generic/CardLink.vue';
 import List from '@/components/generic/List.vue';
 
 // Icons from Vue Material Icons
+import Cash from 'vue-material-design-icons/Cash.vue';
 import CheckBold from 'vue-material-design-icons/CheckBold.vue';
+import CloudDownload from 'vue-material-design-icons/CloudDownload.vue';
 import ContentSave from 'vue-material-design-icons/ContentSave.vue';
 import ControllerClassic from 'vue-material-design-icons/ControllerClassic.vue';
 import Eye from 'vue-material-design-icons/Eye.vue';
 import EyeOff from 'vue-material-design-icons/EyeOff.vue';
 import Github from 'vue-material-design-icons/Github.vue';
 import Linkedin from 'vue-material-design-icons/Linkedin.vue';
+import NoteOff from 'vue-material-design-icons/NoteOff.vue';
+import Reload from 'vue-material-design-icons/Reload.vue';
+import Walk from 'vue-material-design-icons/Walk.vue';
 
 const app = createApp(App);
 
@@ -39,12 +44,17 @@ app.component('Button', Button)
     .component('TextInput', TextInput);
 
 // Icons from Vue Material Icons
-app.component('content-save-icon', ContentSave)
+app.component('cach-icon', Cash)
+    .component('cloud-download-icon', CloudDownload)
+    .component('content-save-icon', ContentSave)
     .component('check-bold-icon', CheckBold)
     .component('controller-classic-icon', ControllerClassic)
     .component('eye-icon', Eye)
     .component('eye-off-icon', EyeOff)
     .component('github-icon', Github)
-    .component('linkedin-icon', Linkedin);
+    .component('linkedin-icon', Linkedin)
+    .component('note-off-icon', NoteOff)
+    .component('reload-icon', Reload)
+    .component('walk', Walk);
 
 app.mount('#app');
