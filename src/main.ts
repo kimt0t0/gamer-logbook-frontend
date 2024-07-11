@@ -26,6 +26,7 @@ import Eye from 'vue-material-design-icons/Eye.vue';
 import EyeOff from 'vue-material-design-icons/EyeOff.vue';
 import Github from 'vue-material-design-icons/Github.vue';
 import Linkedin from 'vue-material-design-icons/Linkedin.vue';
+import Menu from 'vue-material-design-icons/Menu.vue';
 import Note from 'vue-material-design-icons/Note.vue';
 import Reload from 'vue-material-design-icons/Reload.vue';
 import Walk from 'vue-material-design-icons/Walk.vue';
@@ -56,6 +57,7 @@ app.component('account-icon', Account)
     .component('eye-icon', Eye)
     .component('eye-off-icon', EyeOff)
     .component('github-icon', Github)
+    .component('menu-icon', Menu)
     .component('linkedin-icon', Linkedin)
     .component('note-icon', Note)
     .component('reload-icon', Reload)

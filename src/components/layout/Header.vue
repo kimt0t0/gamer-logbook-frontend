@@ -1,18 +1,45 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
+
+const isMobileNavActive = ref<boolean>(false);
+
+const openMobileNav = (): void => {
+    isMobileNavActive.value = true;
+};
+const closeMobileNav = (): void => {
+    isMobileNavActive.value = false;
+};
+const toggleMobileNav = (): void => {
+    isMobileNavActive.value = !isMobileNavActive.value;
+};
 </script>
 
 <template>
     <header>
         <h1>Gamer <span class="colored-linear-primary">Logbook</span></h1>
-        <nav>
+        <!-- DESKTOP NAV -->
+        <nav class="desktop-nav">
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/design-test">Design Test</RouterLink>
             <RouterLink to="/about">About</RouterLink>
         </nav>
-        <Button>
-            <account-icon size="48"></account-icon>
-        </Button>
+        <!-- MOBILE NAV -->
+        <div class="horizontal-display">
+            <div class="mobile-nav-container">
+                <Button>
+                    <menu-icon size="48" @click="toggleMobileNav"></menu-icon>
+                </Button>
+                <nav class="mobile-nav" v-if="isMobileNavActive">
+                    <RouterLink to="/">Home</RouterLink>
+                    <RouterLink to="/design-test">Design Test</RouterLink>
+                    <RouterLink to="/about">About</RouterLink>
+                </nav>
+            </div>
+            <Button>
+                <account-icon size="48"></account-icon>
+            </Button>
+        </div>
     </header>
 </template>
 
@@ -23,16 +50,53 @@ header {
     align-items: center;
     padding: $space-s $space-m $space-l;
     border-bottom: 1px solid color($white, 20);
+    @media (max-width: $bp-xs) {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: $space-l;
+    }
 }
 
-nav {
+.desktop-nav {
     display: flex;
     justify-content: space-around;
     gap: $space-xl;
+    @media (max-width: $bp-m) {
+        display: none;
+    }
 
     a.router-link-exact-active {
         color: $primary;
         border-bottom: 4px solid $primary;
+    }
+}
+
+.mobile-nav-container {
+    position: relative;
+    display: none;
+    @media (max-width: $bp-m) {
+        display: block;
+        position: relative;
+    }
+    .mobile-nav {
+        position: absolute;
+        right: 0;
+        margin-top: $space-s;
+        display: flex;
+        flex-direction: column;
+        background-color: $dark;
+        > a {
+            width: 160px;
+            border: 1px solid $primary;
+            padding: $space-s;
+            &:hover {
+                color: $primary;
+            }
+            &.router-link-exact-active {
+                background-color: $primary;
+                color: $dark;
+            }
+        }
     }
 }
 </style>
