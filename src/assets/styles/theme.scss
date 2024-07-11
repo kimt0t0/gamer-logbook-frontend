@@ -20,7 +20,7 @@ main {
 
 section {
     box-sizing: border-box;
-    padding: $space-xxl $space-xxs;
+    padding: $space-xxl $space-m;
     width: 100%;
     max-width: 1400px;
     display: flex;
@@ -56,9 +56,18 @@ h5,
 h6,
 .subtitle {
     margin: 0;
-    padding-bottom: $space-xl;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: $white;
+}
+
+h1,
+h2 {
+    padding-bottom: $space-xl;
+}
+
+h3,
+h4 {
+    padding-bottom: $space-s;
 }
 
 h1 {
@@ -79,7 +88,6 @@ h1 {
 }
 
 // Text colors
-
 .colored-primary {
     color: $primary;
 }
@@ -94,6 +102,40 @@ h1 {
     background-clip: text;
     color: transparent;
     letter-spacing: -1px;
+}
+
+.colored-linear-secondary {
+    background: linear-gradient(270deg, color($secondary, 40) 3.94%, color($secondary, 70) 90.72%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -1px;
+}
+
+// Icons colors
+.icon-colored-white {
+    color: $white;
+}
+.icon-colored-dark {
+    color: $dark;
+}
+.icon-colored-grey {
+    color: color($white, 20);
+}
+.icon-colored-primary {
+    color: $primary;
+}
+.icon-colored-secondary {
+    color: $secondary;
+}
+.icon-colored-success {
+    color: $success;
+}
+.icon-colored-sky {
+    color: $sky;
+}
+.icon-colored-danger {
+    color: $danger;
 }
 
 // Lists

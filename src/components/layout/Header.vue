@@ -10,7 +10,9 @@ import { RouterLink } from 'vue-router';
             <RouterLink to="/design-test">Design Test</RouterLink>
             <RouterLink to="/about">About</RouterLink>
         </nav>
-        <Button>Signup</Button>
+        <Button>
+            <account-icon size="48"></account-icon>
+        </Button>
     </header>
 </template>
 

@@ -53,7 +53,10 @@
             <li>
                 <div class="reasons-item-headline">
                     <h4>100% free and open-source</h4>
-                    <!-- icon -->
+                    <div class="reasons-item-icons-container">
+                        <cash-icon class="reasons-item-icon icon-colored-success" size="48"></cash-icon>
+                        <close-thick-icon class="reasons-item-icon icon-colored-primary __roll-icon"></close-thick-icon>
+                    </div>
                 </div>
                 <p>
                     This project is developed by a junior developer for free and under the LGPL-3 License. You can find the full code and license
@@ -66,7 +69,10 @@
             <li>
                 <div class="reasons-item-headline">
                     <h4>No papers</h4>
-                    <!-- icon -->
+                    <div class="reasons-item-icons-container">
+                        <note-icon class="reasons-item-icon icon-colored-sky" size="48"></note-icon>
+                        <close-thick-icon class="reasons-item-icon icon-colored-primary __roll-icon"></close-thick-icon>
+                    </div>
                 </div>
                 <p>You don't need to write on easily lost, often messy and always wasted papers.</p>
             </li>
@@ -74,7 +80,7 @@
             <li>
                 <div class="reasons-item-headline">
                     <h4>Load fast</h4>
-                    <!-- icon -->
+                    <reload-icon class="reasons-item-icon icon-colored-danger __roll-icon" size="48"></reload-icon>
                 </div>
                 <p>The application code is light so you can type and use your notes on any device easily.</p>
             </li>
@@ -82,7 +88,10 @@
             <li>
                 <div class="reasons-item-headline">
                     <h4>No download</h4>
-                    <!-- icon -->
+                    <div class="reasons-item-icons-container">
+                        <cloud-download-icon class="reasons-item-icon icon-colored-sky" size="48"></cloud-download-icon>
+                        <close-thick-icon class="reasons-item-icon icon-colored-primary __roll-icons"></close-thick-icon>
+                    </div>
                 </div>
                 <p>You don't need to download anything, you can use the app on any browser.</p>
             </li>
@@ -90,7 +99,7 @@
             <li>
                 <div class="reasons-item-headline">
                     <h4>Use it anywhere !</h4>
-                    <!-- icon -->
+                    <walk-icon class="reasons-item-icon icon-colored-secondary __translate-icon" size="48"></walk-icon>
                 </div>
                 <p>
                     You can load it easily even on your mobile and use it anywhere. No need to bother with messy papers in your bags when you travel
@@ -107,9 +116,9 @@
     padding-bottom: $space-xs;
 }
 
+/* HOW DOES IT WORK */
 .article-contents {
     box-sizing: border-box;
-    max-width: 1000px;
     display: flex;
     white-space: normal;
     gap: $space-xxl;
@@ -157,12 +166,12 @@
 .article-illustration-container {
     box-sizing: border-box;
     margin-top: -$space-xxl;
-    min-width: 20vw;
-    width: 20vw;
-    max-width: 20vw;
-    min-height: 10vw;
-    height: 10vw;
-    max-height: 10vw;
+    min-width: 40vw;
+    width: 40vw;
+    max-width: 40vw;
+    min-height: 20vw;
+    height: 20vw;
+    max-height: 20vw;
     overflow: hidden;
     border: 1px solid color($white, 20);
     border-radius: $radius-xxs;
@@ -185,7 +194,64 @@
     }
 }
 
-/* animations */
+/* WHY OPTING FOR GL */
+.reasons-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xxxl;
+    @media (max-width: $bp-m) {
+        gap: $space-xl;
+    }
+    @media (max-width: $bp-xs) {
+        flex-direction: column;
+    }
+    > li {
+        box-sizing: border-box;
+        padding: $space-l;
+        border: 1px solid color($white, 20);
+        border-radius: $radius-xxs;
+        display: flex;
+        flex-direction: column;
+        width: 25vw;
+        @media (max-width: $bp-m) {
+            width: 40vw;
+        }
+        @media (max-width: $bp-xs) {
+            width: 100%;
+        }
+
+        > .reasons-item-headline {
+            display: flex;
+            justify-content: space-between;
+            > .reasons-item-icons-container {
+                position: relative;
+                > .reasons-item-icon {
+                    position: absolute;
+                    top: 0;
+                    right: $space-xxs;
+                }
+            }
+        }
+
+        > p {
+            text-align: justify;
+        }
+    }
+}
+
+.reasons-item-icon {
+    font-size: $font-m;
+    cursor: pointer;
+    @include classicTransition();
+    &.__roll-icon:hover {
+        transform: rotate(360deg);
+    }
+    &.__translate-icon:hover {
+        transform: translate($space-l, -$space-xs);
+    }
+}
+
+/* ANIMATIONS*/
 @keyframes fade {
     from {
         opacity: 1;
@@ -218,11 +284,17 @@
 }
 
 @keyframes colorBack {
-    from {
-        background-color: color($white, 20);
+    0% {
+        background-color: transparent;
+        opacity: 0.3;
     }
-    to {
-        background-color: $primary;
+    60% {
+        background-color: color($primary, 55);
+        opacity: 0.6;
+    }
+    100% {
+        background-color: color($primary, 60);
+        opacity: 1;
     }
 }
 

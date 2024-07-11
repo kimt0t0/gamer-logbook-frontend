@@ -15,8 +15,10 @@ import CardLink from '@/components/generic/CardLink.vue';
 import List from '@/components/generic/List.vue';
 
 // Icons from Vue Material Icons
+import Account from 'vue-material-design-icons/Account.vue';
 import Cash from 'vue-material-design-icons/Cash.vue';
 import CheckBold from 'vue-material-design-icons/CheckBold.vue';
+import CloseThick from 'vue-material-design-icons/CloseThick.vue';
 import CloudDownload from 'vue-material-design-icons/CloudDownload.vue';
 import ContentSave from 'vue-material-design-icons/ContentSave.vue';
 import ControllerClassic from 'vue-material-design-icons/ControllerClassic.vue';
@@ -24,7 +26,7 @@ import Eye from 'vue-material-design-icons/Eye.vue';
 import EyeOff from 'vue-material-design-icons/EyeOff.vue';
 import Github from 'vue-material-design-icons/Github.vue';
 import Linkedin from 'vue-material-design-icons/Linkedin.vue';
-import NoteOff from 'vue-material-design-icons/NoteOff.vue';
+import Note from 'vue-material-design-icons/Note.vue';
 import Reload from 'vue-material-design-icons/Reload.vue';
 import Walk from 'vue-material-design-icons/Walk.vue';
 
@@ -44,8 +46,10 @@ app.component('Button', Button)
     .component('TextInput', TextInput);
 
 // Icons from Vue Material Icons
-app.component('cach-icon', Cash)
+app.component('account-icon', Account)
+    .component('cash-icon', Cash)
     .component('cloud-download-icon', CloudDownload)
+    .component('close-thick-icon', CloseThick)
     .component('content-save-icon', ContentSave)
     .component('check-bold-icon', CheckBold)
     .component('controller-classic-icon', ControllerClassic)
@@ -53,8 +57,8 @@ app.component('cach-icon', Cash)
     .component('eye-off-icon', EyeOff)
     .component('github-icon', Github)
     .component('linkedin-icon', Linkedin)
-    .component('note-off-icon', NoteOff)
+    .component('note-icon', Note)
     .component('reload-icon', Reload)
-    .component('walk', Walk);
+    .component('walk-icon', Walk);
 
 app.mount('#app');
