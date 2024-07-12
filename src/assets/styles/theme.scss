@@ -9,7 +9,7 @@ body {
     background-color: $dark;
     color: $white;
     scrollbar-width: thin;
-    scrollbar-color: $dark $primary;
+    scrollbar-color: color($white, 20) color($white, 30);
 }
 
 main {
@@ -63,10 +63,6 @@ h6,
     color: $white;
 }
 
-h2 {
-    padding-bottom: $space-xl;
-}
-
 .view-headgroup {
     > h2 {
         padding-bottom: 0;
@@ -115,6 +111,10 @@ h1 {
 
 .colored-secondary {
     color: $secondary;
+}
+
+.colored-dark {
+    color: $dark;
 }
 
 .colored-linear-primary {
@@ -199,7 +199,7 @@ a {
 // Form box
 form {
     box-sizing: border-box;
-    padding: $space-m;
+    padding: $space-l $space-m;
     display: flex;
     flex-direction: column;
     gap: $space-l;
@@ -240,12 +240,15 @@ form {
         min-width: 300px;
         max-width: 300px;
         @media (max-width: $bp-xs) {
-            width: auto;
+            width: 100%;
             min-width: initial;
             max-width: initial;
         }
         &:focus {
             color: $white;
+            &.colored-dark {
+                color: $dark;
+            }
             + label {
                 transform: translate(-$space-m, -$space-l);
                 font-size: $font-xs;
@@ -260,6 +263,9 @@ form {
         > input,
         > textarea {
             color: $white;
+            &.colored-dark {
+                color: $dark;
+            }
         }
         > label,
         > input:focus + label {

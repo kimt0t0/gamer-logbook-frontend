@@ -7,6 +7,7 @@ const props = defineProps<{
     maxLength?: number;
     size?: number;
     inputValidator?: string;
+    darkText?: true;
 }>();
 
 const inputValue = ref('');
@@ -22,7 +23,7 @@ const onInput = (event: Event) => {
         <input
             v-if="required"
             type="text"
-            class="text-input"
+            :class="'text-input' + (darkText ? ' colored-dark' : '')"
             :id="name"
             :name="name"
             :minlength="minLength"
