@@ -1,15 +1,24 @@
 <script setup lang="ts">
 import { QuillEditor } from '@vueup/vue-quill';
+import BlotFormatter from 'quill-blot-formatter';
 import 'quill/dist/quill.bubble.css';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
+
+const quillModules = {
+    name: 'blotFormatter',
+    module: BlotFormatter,
+    options: {
+        /* options */
+    },
+};
 </script>
 
 <template>
     <form class="logbook-form">
         <TextInput name="title" required="true" minLength="3" maxLength="30" inputValidator="titleValidator" :darkText="true" />
         <div class="quill-container">
-            <QuillEditor toolbar="full" />
+            <QuillEditor :modules="quillModules" toolbar="full" />
         </div>
         <div class="actions-container">
             <Button type="submit"><content-save-icon></content-save-icon>Save </Button>
