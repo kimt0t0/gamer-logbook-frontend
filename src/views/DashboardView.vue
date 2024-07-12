@@ -53,8 +53,8 @@ const onLogbookFavorite = (): void => {
                 <CardLink :title="logbook.title" :color="logbook.isFavorite ? 'secondary' : ''" path="/logbook" :imagePath="logbook.imagePath">
                     <div class="actions-container">
                         <Button class="favorite-button" @click="onLogbookFavorite">
-                            <star-plus-icon v-if="logbook.isFavorite"></star-plus-icon>
-                            <star-off-icon v-else></star-off-icon>
+                            <star-icon v-if="logbook.isFavorite"></star-icon>
+                            <star-plus-icon v-else></star-plus-icon>
                         </Button>
                         <Button class="delete-button" color="danger" @click="onDeleteLogbook">
                             <delete-empty-icon></delete-empty-icon>

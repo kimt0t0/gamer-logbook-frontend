@@ -31,7 +31,7 @@ import Menu from 'vue-material-design-icons/Menu.vue';
 import Note from 'vue-material-design-icons/Note.vue';
 import PlusCircle from 'vue-material-design-icons/PlusCircle.vue';
 import Reload from 'vue-material-design-icons/Reload.vue';
-import StarOff from 'vue-material-design-icons/StarOff.vue';
+import Star from 'vue-material-design-icons/StarOff.vue';
 import StarPlus from 'vue-material-design-icons/StarPlus.vue';
 import Walk from 'vue-material-design-icons/Walk.vue';
 
@@ -67,7 +67,7 @@ app.component('account-icon', Account)
     .component('note-icon', Note)
     .component('plus-circle-icon', PlusCircle)
     .component('reload-icon', Reload)
-    .component('star-off-icon', StarOff)
+    .component('star-icon', Star)
     .component('star-plus-icon', StarPlus)
     .component('walk-icon', Walk);
 

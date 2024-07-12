@@ -84,7 +84,8 @@ const props = defineProps<{
 
     &:hover {
         border-bottom-color: $primary;
-        > .cardlink-contents {
+        > .cardlink-contents,
+        .cardlink-contents > .cardlink-title {
             color: $primary;
             &::after {
                 display: none;
