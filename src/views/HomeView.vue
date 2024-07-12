@@ -8,30 +8,32 @@
         <div class="horizontal-display">
             <article>
                 <h3>How does it work ?</h3>
-                <div class="article-contents">
-                    <!-- left side decoration -->
-                    <div class="list-decorator">
-                        <div class="list-deco-dot __animated"></div>
-                        <div class="list-deco-line"></div>
-                        <div class="list-deco-dot"></div>
-                        <div class="list-deco-line"></div>
-                        <div class="list-deco-dot"></div>
+                <div class="how-it-works-article">
+                    <div class="horizontal-display">
+                        <!-- left side decoration -->
+                        <div class="list-decorator">
+                            <div class="list-deco-dot __animated"></div>
+                            <div class="list-deco-line"></div>
+                            <div class="list-deco-dot"></div>
+                            <div class="list-deco-line"></div>
+                            <div class="list-deco-dot"></div>
+                        </div>
+                        <!-- list -->
+                        <ul class="steps-list">
+                            <li>
+                                <h4 class="colored-secondary">Create your account</h4>
+                                <p>You only need a username, an email address and a strong password.</p>
+                            </li>
+                            <li>
+                                <h4>Log in, and discover your dashboard</h4>
+                                <p>You don't need to download anything, just open the application in any browther, on any device.</p>
+                            </li>
+                            <li>
+                                <h4>Create and edit your first logbook</h4>
+                                <p>Simply add a new logbook or select an existing one. Pick your game in the games list or add a new one. Ang go !</p>
+                            </li>
+                        </ul>
                     </div>
-                    <!-- list -->
-                    <ul class="steps-list">
-                        <li>
-                            <h4 class="colored-secondary">Create your account</h4>
-                            <p>You only need a username, an email address and a strong password.</p>
-                        </li>
-                        <li>
-                            <h4>Log in, and discover your dashboard</h4>
-                            <p>You don't need to download anything, just open the application in any browther, on any device.</p>
-                        </li>
-                        <li>
-                            <h4>Create and edit your first logbook</h4>
-                            <p>Simply add a new logbook or select an existing one. Pick your game in the games list or add a new one. Ang go !</p>
-                        </li>
-                    </ul>
                     <!-- animated picture -->
                     <div class="article-illustration-container">
                         <img src="@images/homepage-illus-1.jpg" alt="A bunch of hand notes for games" class="article-illustration __fade" />
@@ -117,11 +119,15 @@
 }
 
 /* HOW DOES IT WORK */
-.article-contents {
+.how-it-works-article {
     box-sizing: border-box;
     display: flex;
     white-space: normal;
     gap: $space-xxl;
+    @media (max-width: $bp-l) {
+        flex-direction: column;
+        gap: $space-xl;
+    }
 }
 
 .steps-list {
@@ -148,8 +154,8 @@
     gap: $space-s;
     > .list-deco-dot {
         box-sizing: border-box;
-        width: 1.25vw;
-        height: 1.25vw;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
         background-color: color($white, 40);
         &.__animated {
@@ -158,8 +164,28 @@
     }
     > .list-deco-line {
         width: 0px;
-        height: 4vw;
+        height: $space-xxl;
         border: 1px solid color($white, 40);
+        @media (max-width: 685px) {
+            height: 70px;
+        }
+        @media (max-width: 415px) {
+            height: 90px;
+        }
+        @media (max-width: 330px) {
+            height: 110px;
+        }
+        @media (max-width: 280px) {
+            height: 130px;
+        }
+
+        @media (max-width: 270px) {
+            height: 150px;
+        }
+
+        @media (max-width: 250px) {
+            height: 180px;
+        }
     }
 }
 
@@ -180,6 +206,30 @@
     align-items: center;
     position: relative;
     animation: colorBack 2s ease-in 4s 1 normal forwards;
+    @media (max-width: $bp-l) {
+        margin-top: 0;
+        min-width: 80%;
+        width: 100%;
+        max-width: 100%;
+        min-height: initial;
+        height: 380px;
+        max-height: initial;
+    }
+    @media (max-width: $bp-s) {
+        height: 300px;
+    }
+    @media (max-width: 540px) {
+        height: 240px;
+    }
+    @media (max-width: $bp-xs) {
+        height: 200px;
+    }
+    @media (max-width: $bp-xxs) {
+        height: 160px;
+    }
+    @media (max-width: 240px) {
+        height: 110px;
+    }
     > .article-illustration {
         position: absolute;
         width: 100%;

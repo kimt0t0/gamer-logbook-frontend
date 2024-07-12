@@ -71,15 +71,20 @@ h4 {
 
 h1 {
     letter-spacing: $space-s;
-    font-size: $font-xxl;
+    font-size: $font-xl;
     text-transform: lowercase;
     font-weight: 800;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: $space-s;
     box-sizing: border-box;
     line-height: 1;
     margin: 0;
     width: fit-content;
+    > img {
+        width: 34px;
+        height: 34px;
+    }
 }
 
 .subtitle {

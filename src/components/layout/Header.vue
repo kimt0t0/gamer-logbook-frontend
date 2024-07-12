@@ -17,7 +17,10 @@ const toggleMobileNav = (): void => {
 
 <template>
     <header>
-        <h1>Gamer <span class="colored-linear-primary">Logbook</span></h1>
+        <h1>
+            <img src="@icons/gl-icon.svg" alt="Official icon of Gamer Logbook" class="h1-icon" />Gamer
+            <span class="colored-linear-primary">Logbook</span>
+        </h1>
         <!-- DESKTOP NAV -->
         <nav class="desktop-nav">
             <RouterLink to="/">Home</RouterLink>
