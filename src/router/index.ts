@@ -10,9 +10,24 @@ const router = createRouter({
             component: HomeView,
         },
         {
+            path: '/dashboard',
+            name: 'dashboard',
+            component: () => import('@/views/DashboardView.vue'),
+        },
+        {
+            path: '/logbook', //'/logbook/:username/:title',
+            name: 'logbook',
+            component: () => import('@/views/LogbookView.vue'),
+        },
+        {
+            path: '/user-settings',
+            name: 'user-settings',
+            component: () => import('@/views/UserSettingsView.vue'),
+        },
+        {
             path: '/design-test',
             name: 'design-test',
-            component: () => import('../views/DesignTestView.vue'),
+            component: () => import('@/views/DesignTestView.vue'),
         },
         {
             path: '/about',

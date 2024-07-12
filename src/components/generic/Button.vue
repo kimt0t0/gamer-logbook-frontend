@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-    <button :type="type" :class="'btn-colored-' + color + ' btn-size-' + size">
+    <button :type="type ? type : 'button'" :class="'btn-colored-' + color + ' btn-size-' + size">
         <slot></slot>
     </button>
 </template>
@@ -36,8 +36,8 @@ button {
         background-color: $primary;
         color: $dark;
         &:hover {
-            background-color: color($primary, 60);
-            border-color: color($primary, 60);
+            background-color: color($primary, 50);
+            border-color: color($primary, 50);
         }
     }
 
@@ -57,6 +57,25 @@ button {
         &:hover {
             background-color: color($secondary, 54);
             border-color: color($secondary, 54);
+        }
+    }
+
+    &.btn-colored-danger {
+        color: $danger;
+        border-color: $danger;
+        &:hover {
+            color: $dark;
+            background-color: $danger;
+        }
+    }
+
+    &.btn-colored-danger-full {
+        background-color: $danger;
+        border-color: $danger;
+        color: $dark;
+        &:hover {
+            background-color: color($danger, 54);
+            border-color: color($danger, 54);
         }
     }
 

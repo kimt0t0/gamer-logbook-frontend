@@ -24,6 +24,7 @@ const toggleMobileNav = (): void => {
         <!-- DESKTOP NAV -->
         <nav class="desktop-nav">
             <RouterLink to="/">Home</RouterLink>
+            <RouterLink to="/dashboard">Dashboard</RouterLink>
             <RouterLink to="/design-test">Design Test</RouterLink>
             <RouterLink to="/about">About</RouterLink>
         </nav>
@@ -35,6 +36,7 @@ const toggleMobileNav = (): void => {
                 </Button>
                 <nav class="mobile-nav" v-if="isMobileNavActive">
                     <RouterLink to="/">Home</RouterLink>
+                    <RouterLink to="/dashboard">Dashboard</RouterLink>
                     <RouterLink to="/design-test">Design Test</RouterLink>
                     <RouterLink to="/about">About</RouterLink>
                 </nav>
@@ -53,7 +55,7 @@ header {
     align-items: center;
     padding: $space-s $space-m $space-l;
     border-bottom: 1px solid color($white, 20);
-    @media (max-width: $bp-xs) {
+    @media (max-width: 500px) {
         flex-direction: column;
         justify-content: flex-start;
         gap: $space-l;
@@ -64,7 +66,7 @@ header {
     display: flex;
     justify-content: space-around;
     gap: $space-xl;
-    @media (max-width: $bp-m) {
+    @media (max-width: $bp-l) {
         display: none;
     }
 
@@ -77,7 +79,7 @@ header {
 .mobile-nav-container {
     position: relative;
     display: none;
-    @media (max-width: $bp-m) {
+    @media (max-width: $bp-l) {
         display: block;
         position: relative;
     }

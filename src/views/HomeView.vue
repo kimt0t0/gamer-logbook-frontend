@@ -339,11 +339,11 @@
         opacity: 0.3;
     }
     60% {
-        background-color: color($primary, 55);
+        background-color: color($primary, 45);
         opacity: 0.6;
     }
     100% {
-        background-color: color($primary, 60);
+        background-color: color($primary, 50);
         opacity: 1;
     }
 }

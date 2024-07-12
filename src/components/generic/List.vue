@@ -38,7 +38,7 @@ ul {
 /* Colors */
 .list-item-colored-primary {
     > .list-item-icon {
-        color: color($primary, 60);
+        color: color($primary, 50);
     }
 }
 

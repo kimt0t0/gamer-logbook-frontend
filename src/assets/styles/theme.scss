@@ -35,6 +35,9 @@ section {
 .horizontal-display {
     display: flex;
     gap: $space-xxl;
+    @media (max-width: $bp-s) {
+        gap: $space-m;
+    }
 }
 
 div,
@@ -64,6 +67,12 @@ h2 {
     padding-bottom: $space-xl;
 }
 
+.view-headgroup {
+    > h2 {
+        padding-bottom: 0;
+    }
+}
+
 h3,
 h4 {
     padding-bottom: $space-s;
@@ -85,6 +94,14 @@ h1 {
         width: 34px;
         height: 34px;
     }
+
+    @media (max-width: 320px) {
+        font-size: $font-l;
+        > img {
+            width: 26px;
+            height: 26px;
+        }
+    }
 }
 
 .subtitle {
@@ -101,7 +118,7 @@ h1 {
 }
 
 .colored-linear-primary {
-    background: linear-gradient(270deg, color($primary, 50) 3.94%, color($primary, 80) 90.72%);
+    background: linear-gradient(270deg, color($primary, 40) 3.94%, color($primary, 70) 90.72%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -155,11 +172,22 @@ a {
     font-weight: 600;
     text-decoration: none;
     padding: $space-xs $space-m $space-xs 0;
+    width: fit-content;
     height: fit-content;
+    border-bottom: 4px solid transparent;
     @include classicTransition;
     &:hover {
         color: $white;
-        border-bottom: 4px solid $white;
+        border-bottom-color: $white;
+    }
+}
+
+.small-link {
+    font-size: $font-s;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    &:hover {
+        border-bottom-color: $white;
     }
 }
 
