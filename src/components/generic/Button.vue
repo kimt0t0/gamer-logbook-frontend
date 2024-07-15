@@ -3,11 +3,12 @@ defineProps<{
     type?: 'button' | 'submit';
     color?: string;
     size?: string;
+    disabled?: boolean;
 }>();
 </script>
 
 <template>
-    <button :type="type ? type : 'button'" :class="'btn-colored-' + color + ' btn-size-' + size">
+    <button :type="type ? type : 'button'" :class="'btn-colored-' + color + ' btn-size-' + size" :disabled="disabled">
         <slot></slot>
     </button>
 </template>
@@ -81,6 +82,7 @@ button {
     }
 
     &:disabled {
+        cursor: initial;
         border-radius: $radius-xs;
         color: color($dark, 400);
         font-weight: 500;

@@ -33,7 +33,7 @@ const onInput = (event: Event) => {
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .password-toggle-button {
     position: absolute;
     top: 0;
