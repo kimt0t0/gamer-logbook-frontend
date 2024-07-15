@@ -1,10 +1,14 @@
 <script setup lang="ts">
+import type { LogbookData } from '@/models/LogbookData.model';
+import { titleValidator } from '@/validators/logbook-validators';
 import { QuillEditor } from '@vueup/vue-quill';
 import BlotFormatter from 'quill-blot-formatter';
 import 'quill/dist/quill.bubble.css';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
+import { computed, reactive } from 'vue';
 
+/* Quill Settings */
 const quillModules = {
     name: 'blotFormatter',
     module: BlotFormatter,
@@ -12,16 +16,42 @@ const quillModules = {
         /* options */
     },
 };
+
+/* Form Data */
+const logbookData = reactive<LogbookData>({
+    title: '',
+    contents: 'Lorem Ipsum',
+});
+
+/* Form validator */
+const formIsValid = computed((): boolean => {
+    return titleValidator(logbookData.title).isValid;
+});
+/* Form submit */
 </script>
 
 <template>
     <form class="logbook-form">
-        <TextInput name="title" required="true" minLength="3" maxLength="30" inputValidator="titleValidator" :darkText="true" />
+        <!-- Title -->
+        <div :class="'input-container' + (logbookData.title.length > 0 ? ' has-value' : '')">
+            <input
+                type="text"
+                class="text-input colored-dark"
+                id="title"
+                name="title"
+                minlength="3"
+                maxlength="50"
+                v-model="logbookData.title"
+                required
+            />
+            <label class="input-label" for="title">title</label>
+        </div>
+        <!-- Contents Editor -->
         <div class="quill-container">
-            <QuillEditor :modules="quillModules" toolbar="full" />
+            <QuillEditor :modules="quillModules" toolbar="full" :v-model="logbookData.contents" />
         </div>
         <div class="actions-container">
-            <Button type="submit"><content-save-icon></content-save-icon>Save </Button>
+            <Button type="submit" :disabled="!formIsValid"><content-save-icon></content-save-icon>Save </Button>
         </div>
     </form>
 </template>
