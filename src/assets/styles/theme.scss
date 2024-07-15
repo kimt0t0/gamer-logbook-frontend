@@ -237,6 +237,12 @@ form {
     }
 }
 // Form items global style
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xxs;
+}
+
 .input-container {
     box-sizing: border-box;
     display: flex;

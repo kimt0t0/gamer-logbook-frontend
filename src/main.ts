@@ -10,6 +10,7 @@ import Password from '@/components/forms/Password.vue';
 import Textarea from '@/components/forms/Textarea.vue';
 import TextInput from '@/components/forms/TextInput.vue';
 // Generic components
+import ErrorMessage from '@/components/forms/ErrorMessage.vue';
 import Button from '@/components/generic/Button.vue';
 import ButtonLink from '@/components/generic/ButtonLink.vue';
 import CardLink from '@/components/generic/CardLink.vue';
@@ -47,6 +48,7 @@ app.use(router);
 app.component('Button', Button)
     .component('ButtonLink', ButtonLink)
     .component('CardLink', CardLink)
+    .component('ErrorMessage', ErrorMessage)
     .component('List', List)
     .component('PageGuard', PageGuard)
     // Form components

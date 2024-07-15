@@ -40,36 +40,42 @@ function onSubmitLogin(): void {
 <template>
     <FormBox :onSubmitAction="onSubmitLogin">
         <!-- Username -->
-        <div :class="'input-container' + (credentials.username.length > 0 ? ' has-value' : '')">
-            <input
-                type="text"
-                class="text-input"
-                id="username"
-                name="username"
-                minlength="3"
-                maxlength="50"
-                v-model="credentials.username"
-                required
-            />
-            <label class="input-label" for="username">username</label>
+        <div class="input-group">
+            <div :class="'input-container' + (credentials.username.length > 0 ? ' has-value' : '')">
+                <input
+                    type="text"
+                    class="text-input"
+                    id="username"
+                    name="username"
+                    minlength="3"
+                    maxlength="50"
+                    v-model="credentials.username"
+                    required
+                />
+                <label class="input-label" for="username">username</label>
+            </div>
+            <ErrorMessage v-if="credentials.username.length > 0" :validation="usernameValidator(credentials.username)" />
         </div>
         <!-- Password -->
-        <div :class="'input-container password-container' + (credentials.password.length > 0 ? ' has-value' : '')">
-            <input
-                :type="isPasswordHidden ? 'password' : 'text'"
-                class="text-input password-input"
-                id="password"
-                name="password"
-                minlength="8"
-                maxlength="255"
-                v-model="credentials.password"
-                required
-            />
-            <label class="input-label" for="password">password</label>
-            <button type="button" class="password-toggle-button" @click="toggleIsPasswordHidden()">
-                <eye-icon class="password-button-icon" v-if="isPasswordHidden"></eye-icon>
-                <eye-off-icon class="password-button-icon" v-else></eye-off-icon>
-            </button>
+        <div class="input-group">
+            <div :class="'input-container password-container' + (credentials.password.length > 0 ? ' has-value' : '')">
+                <input
+                    :type="isPasswordHidden ? 'password' : 'text'"
+                    class="text-input password-input"
+                    id="password"
+                    name="password"
+                    minlength="8"
+                    maxlength="255"
+                    v-model="credentials.password"
+                    required
+                />
+                <label class="input-label" for="password">password</label>
+                <button type="button" class="password-toggle-button" @click="toggleIsPasswordHidden()">
+                    <eye-icon class="password-button-icon" v-if="isPasswordHidden"></eye-icon>
+                    <eye-off-icon class="password-button-icon" v-else></eye-off-icon>
+                </button>
+            </div>
+            <ErrorMessage v-if="credentials.password.length > 0" :validation="passwordValidator(credentials.password)" />
         </div>
         <!-- Submit -->
         <div class="center-content">
