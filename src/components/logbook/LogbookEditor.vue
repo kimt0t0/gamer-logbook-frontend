@@ -28,24 +28,41 @@ const quillModules = {
 
 <style lang="scss" scoped>
 .logbook-form {
-    background-color: color($primary, 90);
+    max-width: 1000px;
+    background-color: color($primary, 95); // or try color($primary, 45)
     color: $dark;
+    border: 2px solid color($primary, 50);
 }
 
 .quill-container {
     box-sizing: border-box;
     height: 340px;
     max-height: 340px;
-    padding-bottom: $space-xxl;
+    padding-bottom: $space-xl;
     overflow-y: scroll;
     scrollbar-width: thin;
     border-radius: $radius-xxs;
+    @media (max-width: $bp-l) {
+        padding-bottom: $space-m;
+    }
+    @media (max-width: $bp-s) {
+        padding-bottom: 0;
+        border-bottom: 4px solid color($primary, 50);
+    }
 }
 
 .actions-container {
     width: fit-content;
     padding: $space-m $space-xxl $space-s 0;
     border-top: 4px solid color($primary, 50);
+
+    @media (max-width: $bp-s) {
+        width: initial;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        border-top: none;
+    }
 }
 
 button {
