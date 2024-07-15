@@ -31,10 +31,10 @@ const toggleMobileNav = (): void => {
             <RouterLink to="/about">About</RouterLink>
         </nav>
         <!-- MOBILE NAV -->
-        <div class="horizontal-display">
+        <div class="horizontal-display __mobile-nav">
             <div class="mobile-nav-container">
                 <Button>
-                    <menu-icon size="48" @click="toggleMobileNav"></menu-icon>
+                    <menu-icon @click="toggleMobileNav"></menu-icon>
                 </Button>
                 <nav class="mobile-nav" v-if="isMobileNavActive">
                     <RouterLink to="/">Home</RouterLink>
@@ -45,10 +45,10 @@ const toggleMobileNav = (): void => {
             </div>
             <!-- USER AUTH / LEAVE -->
             <Button @click="useAuthModalStore().toggleModal" v-if="useAuthentificationStore().userAuth == null">
-                <account-icon size="48"></account-icon>
+                <account-icon></account-icon>
             </Button>
             <Button @click="useAuthentificationStore().resetAuth" v-else>
-                <account-off-icon size="48"></account-off-icon>
+                <account-off-icon></account-off-icon>
             </Button>
         </div>
     </header>
@@ -56,12 +56,19 @@ const toggleMobileNav = (): void => {
 
 <style lang="scss">
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $dark;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: $space-s $space-m $space-l;
     border-bottom: 1px solid color($white, 20);
     @media (max-width: 500px) {
+        position: relative;
         flex-direction: column;
         justify-content: flex-start;
         gap: $space-l;

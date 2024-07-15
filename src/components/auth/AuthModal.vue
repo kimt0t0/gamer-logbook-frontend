@@ -27,7 +27,7 @@ import SignupForm from './SignupForm.vue';
 <style lang="scss" scoped>
 .auth-modal-container {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     bottom: 0;
     left: 0;

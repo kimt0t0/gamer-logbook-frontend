@@ -17,6 +17,13 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: $space-xxxl;
+    @media (max-width: $bp-s) {
+        padding-top: $space-xl;
+    }
+    @media (max-width: $bp-xs) {
+        padding-top: initial;
+    }
 }
 
 section {
@@ -36,6 +43,9 @@ section {
 .horizontal-display {
     display: flex;
     gap: $space-xxl;
+    &.__mobile-nav {
+        gap: $space-m;
+    }
     @media (max-width: $bp-s) {
         gap: $space-m;
     }
