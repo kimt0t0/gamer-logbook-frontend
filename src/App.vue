@@ -10,9 +10,11 @@ import Header from './components/layout/Header.vue';
 
     <main>
         <AuthModal></AuthModal>
-        <Transition name="fade">
-            <RouterView />
-        </Transition>
+        <Suspense>
+            <Transition name="fade">
+                <RouterView />
+            </Transition>
+        </Suspense>
     </main>
     <Footer />
 </template>

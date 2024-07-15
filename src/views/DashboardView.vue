@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useAuthentificationStore } from '@/stores/authentification';
+
 var logbooks: Array<{
     title: string;
     id: string;
@@ -35,7 +37,10 @@ const onLogbookFavorite = (): void => {
 };
 </script>
 <template>
-    <section class="vertical-display dashboard-section">
+    <!-- Non authentified user -->
+    <PageGuard v-if="!useAuthentificationStore().userAuth" />
+    <!-- View content -->
+    <section class="vertical-display dashboard-section" v-else>
         <div class="view-headgroup">
             <h2>Welcome <span class="colored-secondary">Username !</span></h2>
             <p class="subtitle">

@@ -14,9 +14,11 @@ import Button from '@/components/generic/Button.vue';
 import ButtonLink from '@/components/generic/ButtonLink.vue';
 import CardLink from '@/components/generic/CardLink.vue';
 import List from '@/components/generic/List.vue';
+import PageGuard from '@/components/generic/PageGuard.vue';
 
 // Icons from Vue Material Icons
 import Account from 'vue-material-design-icons/Account.vue';
+import AccountOff from 'vue-material-design-icons/AccountOff.vue';
 import Cash from 'vue-material-design-icons/Cash.vue';
 import CheckBold from 'vue-material-design-icons/CheckBold.vue';
 import CloseThick from 'vue-material-design-icons/CloseThick.vue';
@@ -46,6 +48,7 @@ app.component('Button', Button)
     .component('ButtonLink', ButtonLink)
     .component('CardLink', CardLink)
     .component('List', List)
+    .component('PageGuard', PageGuard)
     // Form components
     .component('FormBox', FormBox)
     .component('Password', Password)
@@ -54,6 +57,7 @@ app.component('Button', Button)
 
 // Icons from Vue Material Icons
 app.component('account-icon', Account)
+    .component('account-off-icon', AccountOff)
     .component('cash-icon', Cash)
     .component('cloud-download-icon', CloudDownload)
     .component('close-thick-icon', CloseThick)

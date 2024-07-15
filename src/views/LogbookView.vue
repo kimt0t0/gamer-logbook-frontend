@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import LogbookEditor from '@/components/logbook/LogbookEditor.vue';
+import { useAuthentificationStore } from '@/stores/authentification';
 </script>
 <template>
-    <section class="vertical-display logbook-section">
+    <!-- Non authentified user -->
+    <PageGuard v-if="!useAuthentificationStore().userAuth" />
+    <!-- Page contents -->
+    <section class="vertical-display logbook-section" v-else>
         <div class="view-headgroup">
             <h2 class="colored-primary">Logbook's Title</h2>
             <p class="subtitle">Your logbook for <span class="colored-primary">Game's Name</span></p>

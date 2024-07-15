@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { CredentialsLogin } from '@/models/CredentialsLogin.model';
+import { useAuthModalStore } from '@/stores/auth-modal';
+import { useAuthentificationStore } from '@/stores/authentification';
 import { passwordValidator, usernameValidator } from '@/validators/auth-validators';
 import { computed, reactive, ref } from 'vue';
 
@@ -17,18 +19,21 @@ const credentials = reactive<CredentialsLogin>({
 });
 
 /* Form validation */
-const formIsValid = computed(() => {
+const formIsValid = computed((): boolean => {
     return usernameValidator(credentials.username).isValid && passwordValidator(credentials.password).isValid;
 });
 
 /* Form submit */
 function onSubmitLogin(): void {
+    // Check form
     if (!formIsValid) {
         throw new Error(
             `Attempted to submit invalid form. Form validation results are as follow: ${usernameValidator(credentials.username)}, ${passwordValidator(credentials.password)}`,
         );
     }
-    alert(`Submit form with username: ${credentials.username} and password: ${credentials.password}`);
+    // Set authentification token
+    useAuthentificationStore().setAuth();
+    useAuthModalStore().closeModal();
 }
 </script>
 

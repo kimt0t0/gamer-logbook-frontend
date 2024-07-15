@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CredentialsSignup } from '@/models/CredentialsSignup.model';
+import { useAuthModalStore } from '@/stores/auth-modal';
 import { emailValidator, passwordValidator, usernameValidator } from '@/validators/auth-validators';
 import { computed, reactive, ref } from 'vue';
 
@@ -34,6 +35,7 @@ function onSubmitSignup(): void {
         );
     }
     alert(`Submit signup with username: ${credentials.username}, email: ${credentials.email} and password: ${credentials.password}`);
+    useAuthModalStore().closeModal();
 }
 </script>
 

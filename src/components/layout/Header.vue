@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useAuthModalStore } from '@/stores/auth-modal';
+import { useAuthentificationStore } from '@/stores/authentification';
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
@@ -25,7 +26,7 @@ const toggleMobileNav = (): void => {
         <!-- DESKTOP NAV -->
         <nav class="desktop-nav">
             <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/dashboard">Dashboard</RouterLink>
+            <RouterLink to="/dashboard" v-if="useAuthentificationStore().userAuth != null">Dashboard</RouterLink>
             <RouterLink to="/design-test">Design Test</RouterLink>
             <RouterLink to="/about">About</RouterLink>
         </nav>
@@ -37,13 +38,17 @@ const toggleMobileNav = (): void => {
                 </Button>
                 <nav class="mobile-nav" v-if="isMobileNavActive">
                     <RouterLink to="/">Home</RouterLink>
-                    <RouterLink to="/dashboard">Dashboard</RouterLink>
+                    <RouterLink to="/dashboard" v-if="useAuthentificationStore().userAuth != null">Dashboard</RouterLink>
                     <RouterLink to="/design-test">Design Test</RouterLink>
                     <RouterLink to="/about">About</RouterLink>
                 </nav>
             </div>
-            <Button @click="useAuthModalStore().toggleModal">
+            <!-- USER AUTH / LEAVE -->
+            <Button @click="useAuthModalStore().toggleModal" v-if="useAuthentificationStore().userAuth == null">
                 <account-icon size="48"></account-icon>
+            </Button>
+            <Button @click="useAuthentificationStore().resetAuth" v-else>
+                <account-off-icon size="48"></account-off-icon>
             </Button>
         </div>
     </header>
