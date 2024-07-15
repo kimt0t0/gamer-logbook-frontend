@@ -33,18 +33,21 @@ const formIsValid = computed((): boolean => {
 <template>
     <form class="logbook-form">
         <!-- Title -->
-        <div :class="'input-container' + (logbookData.title.length > 0 ? ' has-value' : '')">
-            <input
-                type="text"
-                class="text-input colored-dark"
-                id="title"
-                name="title"
-                minlength="3"
-                maxlength="50"
-                v-model="logbookData.title"
-                required
-            />
-            <label class="input-label" for="title">title</label>
+        <div class="input-group">
+            <div :class="'input-container' + (logbookData.title.length > 0 ? ' has-value' : '')">
+                <input
+                    type="text"
+                    class="text-input colored-dark"
+                    id="title"
+                    name="title"
+                    minlength="3"
+                    maxlength="50"
+                    v-model="logbookData.title"
+                    required
+                />
+                <label class="input-label" for="title">title</label>
+            </div>
+            <ErrorMessage v-if="logbookData.title.length > 0" :validation="titleValidator(logbookData.title)" />
         </div>
         <!-- Contents Editor -->
         <div class="quill-container">
