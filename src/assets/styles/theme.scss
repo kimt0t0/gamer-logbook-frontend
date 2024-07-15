@@ -13,6 +13,7 @@ body {
 }
 
 main {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,6 +39,12 @@ section {
     @media (max-width: $bp-s) {
         gap: $space-m;
     }
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div,
@@ -194,6 +201,10 @@ a {
 // Buttons
 .button-icon {
     padding-top: $space-xs;
+}
+
+.auth-submit-button {
+    width: fit-content;
 }
 
 // Form box

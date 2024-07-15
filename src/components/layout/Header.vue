@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useAuthModalStore } from '@/stores/auth-modal';
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
@@ -41,7 +42,7 @@ const toggleMobileNav = (): void => {
                     <RouterLink to="/about">About</RouterLink>
                 </nav>
             </div>
-            <Button>
+            <Button @click="useAuthModalStore().toggleModal">
                 <account-icon size="48"></account-icon>
             </Button>
         </div>

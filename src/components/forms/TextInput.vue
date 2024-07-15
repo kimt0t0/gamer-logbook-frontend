@@ -6,7 +6,7 @@ const props = defineProps<{
     minLength?: number;
     maxLength?: number;
     size?: number;
-    inputValidator?: string;
+    inputValidator?: 'username' | 'email';
     darkText?: true;
 }>();
 
@@ -21,7 +21,6 @@ const onInput = (event: Event) => {
 <template>
     <div :class="'input-container' + (inputValue ? ' has-value' : '')">
         <input
-            v-if="required"
             type="text"
             :class="'text-input' + (darkText ? ' colored-dark' : '')"
             :id="name"
@@ -30,18 +29,7 @@ const onInput = (event: Event) => {
             :maxlength="maxLength"
             :size="size"
             v-model="inputValue"
-            required
-        />
-        <input
-            v-else
-            type="text"
-            class="text-input"
-            :id="name"
-            :name="name"
-            :minlength="minLength"
-            :maxlength="maxLength"
-            :size="size"
-            v-model="inputValue"
+            :required="required"
         />
         <label class="input-label" :for="name">{{ name }}</label>
     </div>

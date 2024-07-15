@@ -25,6 +25,7 @@ button {
     border-radius: $radius-xxs;
     background-color: transparent;
     padding: $space-s;
+    height: fit-content;
     cursor: pointer;
     @include classicTransition;
     &:hover {

@@ -11,6 +11,7 @@ import Textarea from '@/components/forms/Textarea.vue';
 import TextInput from '@/components/forms/TextInput.vue';
 // Generic components
 import Button from '@/components/generic/Button.vue';
+import ButtonLink from '@/components/generic/ButtonLink.vue';
 import CardLink from '@/components/generic/CardLink.vue';
 import List from '@/components/generic/List.vue';
 
@@ -42,6 +43,7 @@ app.use(router);
 
 // Generic components
 app.component('Button', Button)
+    .component('ButtonLink', ButtonLink)
     .component('CardLink', CardLink)
     .component('List', List)
     // Form components
