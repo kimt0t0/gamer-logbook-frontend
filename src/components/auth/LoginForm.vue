@@ -2,7 +2,7 @@
 import type { CredentialsLogin } from '@/models/CredentialsLogin.model';
 import { useAuthModalStore } from '@/stores/auth-modal';
 import { useAuthentificationStore } from '@/stores/authentification';
-import { passwordValidator, usernameValidator } from '@/validators/auth-validators';
+import { emailValidator, passwordValidator, usernameValidator } from '@/validators/auth-validators';
 import { computed, reactive, ref } from 'vue';
 
 /* Show / hide password */
@@ -14,13 +14,13 @@ const toggleIsPasswordHidden = (): void => {
 
 /* Form data */
 const credentials = reactive<CredentialsLogin>({
-    username: '',
+    email: '',
     password: '',
 });
 
 /* Form validation */
 const formIsValid = computed((): boolean => {
-    return usernameValidator(credentials.username).isValid && passwordValidator(credentials.password).isValid;
+    return emailValidator(credentials.email).isValid && passwordValidator(credentials.password).isValid;
 });
 
 /* Form submit */
@@ -28,7 +28,7 @@ function onSubmitLogin(): void {
     // Check form
     if (!formIsValid) {
         throw new Error(
-            `Attempted to submit invalid form. Form validation results are as follow: ${usernameValidator(credentials.username)}, ${passwordValidator(credentials.password)}`,
+            `Attempted to submit invalid form. Form validation results are as follow: ${emailValidator(credentials.email)}, ${passwordValidator(credentials.password)}`,
         );
     }
     // Set authentification token
@@ -41,20 +41,11 @@ function onSubmitLogin(): void {
     <FormBox :onSubmitAction="onSubmitLogin">
         <!-- Username -->
         <div class="input-group">
-            <div :class="'input-container' + (credentials.username.length > 0 ? ' has-value' : '')">
-                <input
-                    type="text"
-                    class="text-input"
-                    id="username"
-                    name="username"
-                    minlength="3"
-                    maxlength="50"
-                    v-model="credentials.username"
-                    required
-                />
-                <label class="input-label" for="username">username</label>
+            <div :class="'input-container' + (credentials.email.length > 0 ? ' has-value' : '')">
+                <input type="text" class="text-input" id="email" name="email" minlength="3" maxlength="50" v-model="credentials.email" required />
+                <label class="input-label" for="email">email</label>
             </div>
-            <ErrorMessage v-if="credentials.username.length > 0" :validation="usernameValidator(credentials.username)" />
+            <ErrorMessage v-if="credentials.email.length > 0" :validation="usernameValidator(credentials.email)" />
         </div>
         <!-- Password -->
         <div class="input-group">
