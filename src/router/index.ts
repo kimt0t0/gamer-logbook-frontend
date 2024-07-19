@@ -25,9 +25,9 @@ const router = createRouter({
             component: () => import('@/views/UserSettingsView.vue'),
         },
         {
-            path: '/design-test',
-            name: 'design-test',
-            component: () => import('@/views/DesignTestView.vue'),
+            path: '/data-test',
+            name: 'data-test',
+            component: () => import('@/views/DataTestView.vue'),
         },
         {
             path: '/about',

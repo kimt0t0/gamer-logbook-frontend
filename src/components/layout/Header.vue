@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useAuthModalStore } from '@/stores/auth-modal';
-import { useAuthentificationStore } from '@/stores/authentification';
+import { useAuthModalStore } from '@/stores/auth-modal.store';
+import { useAuthentificationStore } from '@/stores/authentification.store';
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
@@ -27,7 +27,7 @@ const toggleMobileNav = (): void => {
         <nav class="desktop-nav">
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/dashboard" v-if="useAuthentificationStore().userAuth != null">Dashboard</RouterLink>
-            <RouterLink to="/design-test">Design Test</RouterLink>
+            <RouterLink to="/data-test">Data Test</RouterLink>
             <RouterLink to="/about">About</RouterLink>
         </nav>
         <!-- MOBILE NAV -->
@@ -39,7 +39,7 @@ const toggleMobileNav = (): void => {
                 <nav class="mobile-nav" v-if="isMobileNavActive">
                     <RouterLink to="/">Home</RouterLink>
                     <RouterLink to="/dashboard" v-if="useAuthentificationStore().userAuth != null">Dashboard</RouterLink>
-                    <RouterLink to="/design-test">Design Test</RouterLink>
+                    <RouterLink to="/data-test">Data Test</RouterLink>
                     <RouterLink to="/about">About</RouterLink>
                 </nav>
             </div>

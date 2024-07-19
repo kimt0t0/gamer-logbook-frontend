@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import LogbookEditor from '@/components/logbook/LogbookEditor.vue';
-import { useAuthentificationStore } from '@/stores/authentification';
+import { useAuthentificationStore } from '@/stores/authentification.store';
 </script>
 <template>
     <!-- Non authentified user -->

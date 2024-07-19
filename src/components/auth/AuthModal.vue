@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAuthModalStore } from '@/stores/auth-modal';
+import { useAuthModalStore } from '@/stores/auth-modal.store';
 import LoginForm from './LoginForm.vue';
 import SignupForm from './SignupForm.vue';
 </script>

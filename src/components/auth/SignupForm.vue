@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CredentialsSignup } from '@/models/CredentialsSignup.model';
-import { useAuthModalStore } from '@/stores/auth-modal';
+import { useAuthModalStore } from '@/stores/auth-modal.store';
 import { emailValidator, passwordValidator, usernameValidator } from '@/validators/auth-validators';
 import { computed, reactive, ref } from 'vue';
 

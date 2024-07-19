@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAuthentificationStore } from '@/stores/authentification';
+import { useAuthentificationStore } from '@/stores/authentification.store';
 
 var logbooks: Array<{
     title: string;
