@@ -2,7 +2,7 @@
 import type { CredentialsLogin } from '@/models/CredentialsLogin.model';
 import { useAuthModalStore } from '@/stores/auth-modal';
 import { useAuthentificationStore } from '@/stores/authentification';
-import { emailValidator, passwordValidator, usernameValidator } from '@/validators/auth-validators';
+import { emailValidator, passwordValidator } from '@/validators/auth-validators';
 import { computed, reactive, ref } from 'vue';
 
 /* Show / hide password */
@@ -45,7 +45,7 @@ function onSubmitLogin(): void {
                 <input type="text" class="text-input" id="email" name="email" minlength="3" maxlength="50" v-model="credentials.email" required />
                 <label class="input-label" for="email">email</label>
             </div>
-            <ErrorMessage v-if="credentials.email.length > 0" :validation="usernameValidator(credentials.email)" />
+            <ErrorMessage v-if="credentials.email.length > 0" :validation="emailValidator(credentials.email)" />
         </div>
         <!-- Password -->
         <div class="input-group">
