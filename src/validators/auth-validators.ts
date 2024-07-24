@@ -1,4 +1,4 @@
-import type { Validation } from '@/models/Validation.model';
+import type { Validation } from '@/interfaces/Validation.interface';
 
 export const validateInput = (input: string, validator: 'username' | 'email' | 'password'): Validation => {
     switch (validator) {

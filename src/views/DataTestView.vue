@@ -3,6 +3,8 @@ import type { GameData } from '@/models/GameData.model';
 import { useGamesStore } from '@/stores/games.store';
 import { onBeforeMount, ref } from 'vue';
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const games = ref<GameData[] | void>();
 
 onBeforeMount(async () => {
@@ -16,8 +18,7 @@ onBeforeMount(async () => {
         <div class="items-displayer">
             <div class="game-card" v-for="(game, index) in useGamesStore().games" :key="index">
                 <h3>{{ game.title }}</h3>
-                <p>Added by: {{ game.owner }}</p>
-                <!-- <img :src="game.imageUrl" title="game-illus" /> -->
+                <img v-if="game.imageUrl" :src="`${apiUrl}${game.imageUrl}`" title="game-illus" />
             </div>
         </div>
     </section>

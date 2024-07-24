@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Validation } from '@/models/Validation.model';
+import type { Validation } from '@/interfaces/Validation.interface';
 defineProps<{
     validation: Validation;
 }>();

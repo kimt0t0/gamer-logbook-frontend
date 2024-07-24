@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { CredentialsSignup } from '@/models/CredentialsSignup.model';
+import { useAuth } from '@/composables/auth.composable';
+import type { CredentialsSignup } from '@/interfaces/CredentialsSignup.interface';
 import { useAuthModalStore } from '@/stores/auth-modal.store';
 import { emailValidator, passwordValidator, usernameValidator } from '@/validators/auth-validators';
 import { computed, reactive, ref } from 'vue';
@@ -34,7 +35,7 @@ function onSubmitSignup(): void {
             `Attempted to submit invalid form. Form validation results are as follow: ${usernameValidator(credentials.username)}, ${emailValidator(credentials.email)}, ${passwordValidator(credentials.password)}`,
         );
     }
-    alert(`Submit signup with username: ${credentials.username}, email: ${credentials.email} and password: ${credentials.password}`);
+    useAuth().signup(credentials);
     useAuthModalStore().closeModal();
 }
 </script>

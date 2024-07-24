@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import LogbookEditor from '@/components/logbook/LogbookEditor.vue';
-import { useAuthentificationStore } from '@/stores/authentification.store';
+import { useAuthStore } from '@/stores/auth.store';
 </script>
 <template>
     <!-- Non authentified user -->
-    <PageGuard v-if="!useAuthentificationStore().userAuth" />
+    <PageGuard v-if="!useAuthStore().userAuth" />
     <!-- Page contents -->
     <section class="vertical-display logbook-section" v-else>
         <div class="view-headgroup">

@@ -1,4 +1,4 @@
-import type { Validation } from '@/models/Validation.model';
+import type { Validation } from '@/interfaces/Validation.interface';
 
 export const titleValidator = (input: string): Validation => {
     const re = /^[A-Za-z\d'_\-* ]{3,50}$/;

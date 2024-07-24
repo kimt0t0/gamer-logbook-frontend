@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { CredentialsLogin } from '@/models/CredentialsLogin.model';
+import { useAuth } from '@/composables/auth.composable';
+import type { CredentialsLogin } from '@/interfaces/CredentialsLogin.interface';
 import { useAuthModalStore } from '@/stores/auth-modal.store';
-import { useAuthentificationStore } from '@/stores/authentification.store';
 import { emailValidator, passwordValidator } from '@/validators/auth-validators';
 import { computed, reactive, ref } from 'vue';
 
@@ -32,7 +32,7 @@ function onSubmitLogin(): void {
         );
     }
     // Set authentification token
-    useAuthentificationStore().setAuth();
+    useAuth().login(credentials);
     useAuthModalStore().closeModal();
 }
 </script>
