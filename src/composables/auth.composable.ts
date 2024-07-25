@@ -3,7 +3,7 @@ import type { CredentialsSignup } from '@/interfaces/CredentialsSignup.interface
 import type { JwtToken } from '@/interfaces/JwtToken.interface';
 import type { UserPublicData } from '@/interfaces/UserPublicData.interface';
 import { useAuthStore } from '@/stores/auth.store';
-import { loginUtil, signupUtil } from '@/utils/auth.utils';
+import { getUserAuthUtil, loginUtil, signupUtil } from '@/utils/auth.utils';
 
 export const useAuth = () => {
     const login = async (credentials: CredentialsLogin): Promise<void> => {
@@ -30,8 +30,18 @@ export const useAuth = () => {
         }
     };
 
+    const getUserAuth = async (): Promise<UserPublicData | void> => {
+        try {
+            const user = await getUserAuthUtil();
+            return user;
+        } catch (e) {
+            console.error(`Oups, impossible de charger les données de l'utilisateur·ice authentifié·e !`);
+        }
+    };
+
     return {
         login,
         signup,
+        getUserAuth,
     };
 };

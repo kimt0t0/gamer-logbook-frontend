@@ -38,7 +38,7 @@ const onLogbookFavorite = (): void => {
 </script>
 <template>
     <!-- Non authentified user -->
-    <PageGuard v-if="!useAuthStore().userAuth" />
+    <PageGuard v-if="!useAuthStore().computedUserAuth" />
     <!-- View content -->
     <section class="vertical-display dashboard-section" v-else>
         <div class="view-headgroup">

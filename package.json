@@ -16,6 +16,7 @@
         "@vueup/vue-quill": "^1.2.0",
         "axios": "^1.7.2",
         "crypto": "^1.0.1",
+        "jwt-decode": "^4.0.0",
         "pinia": "^2.1.7",
         "quill-blot-formatter": "^1.0.5",
         "vue": "^3.4.29",

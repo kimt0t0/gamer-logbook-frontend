@@ -26,7 +26,8 @@ const toggleMobileNav = (): void => {
         <!-- DESKTOP NAV -->
         <nav class="desktop-nav">
             <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/dashboard" v-if="useAuthStore().userAuth != null">Dashboard</RouterLink>
+            <RouterLink to="/dashboard" v-if="useAuthStore().computedUserAuth">Dashboard</RouterLink>
+            <RouterLink to="/user-settings" v-if="useAuthStore().computedUserAuth">Account Settings</RouterLink>
             <RouterLink to="/data-test">Data Test</RouterLink>
             <RouterLink to="/about">About</RouterLink>
         </nav>
@@ -38,13 +39,14 @@ const toggleMobileNav = (): void => {
                 </Button>
                 <nav class="mobile-nav" v-if="isMobileNavActive">
                     <RouterLink to="/">Home</RouterLink>
-                    <RouterLink to="/dashboard" v-if="useAuthStore().userAuth != null">Dashboard</RouterLink>
+                    <RouterLink to="/dashboard" v-if="useAuthStore().computedUserAuth">Dashboard</RouterLink>
+                    <RouterLink to="/user-settings" v-if="useAuthStore().computedUserAuth">Account Settings</RouterLink>
                     <RouterLink to="/data-test">Data Test</RouterLink>
                     <RouterLink to="/about">About</RouterLink>
                 </nav>
             </div>
             <!-- USER AUTH / LEAVE -->
-            <Button @click="useAuthModalStore().toggleModal" v-if="useAuthStore().userAuth == null">
+            <Button @click="useAuthModalStore().toggleModal" v-if="!useAuthStore().computedUserAuth">
                 <account-icon></account-icon>
             </Button>
             <Button @click="useAuthStore().resetAuth" v-else>
